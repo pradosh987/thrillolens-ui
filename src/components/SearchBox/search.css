@@ -61,19 +61,26 @@ input:focus {
 }
 
 @media only screen and (max-width: 580px) {
-  .image-search-box {
-    height: 0px;
-    width: calc(100% - 40px);
-    background-color: #fff;
-    /* border-radius: 10px; */
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    transition: height linear 0.2s;
-    overflow: hidden;
+  .search-bar-box {
+    width: 100%;
+  }
+  .search-bar {
+    width: calc(100% - 100px);
+    margin-left: 20px;
+    border-radius: 10px;
+  }
+  .search-icon {
     display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    /* padding: 30px; */
-    align-items: center;
+    position: absolute;
+    margin: 20px 0px 0px 40px;
+  }
+  .lens-icon {
+    display: flex;
+    position: absolute;
+    margin: 15px 0px 0px calc(100% - 70px);
+    cursor: pointer;
+  }
+  .image-search-box {
+    width: calc(100% - 70px);
   }
 }
