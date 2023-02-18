@@ -13,8 +13,8 @@ function OverviewCard({ product }: any) {
         {
           <img
             placeholder="blur"
-            // src={product?.featured_media?.media_urls.thumbnail || ''}
-            src="https://w0.peakpx.com/wallpaper/187/664/HD-wallpaper-mando-baby-yoda-star-wars-the-mandalorian.jpg"
+            src={product?.featured_image_urls.thumbnail || ""}
+            // src="https://w0.peakpx.com/wallpaper/187/664/HD-wallpaper-mando-baby-yoda-star-wars-the-mandalorian.jpg"
             alt={product?.featured_media?.caption || product?.name}
             title={product?.featured_media?.caption || product?.name}
             width="100%"
@@ -42,6 +42,7 @@ function OverviewCard({ product }: any) {
           {"INR"} {product.starting_price}
         </p>
       </div>
+      <div className="bottom-button">Book Now</div>
     </div>
     // </a>
   );

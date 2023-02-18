@@ -17,7 +17,7 @@ function Search() {
       .post("http://localhost:3001/base_api/process_image", formData)
       .then((res) => {
         console.log({ res });
-        navigate("/search", { state: res.data });
+        navigate("/search", { state: productsList });
       })
       .catch((e) => {
         console.log({ e });

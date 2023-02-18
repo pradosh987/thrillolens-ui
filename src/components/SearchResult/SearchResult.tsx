@@ -54,14 +54,15 @@ function SearchResult(props: any) {
           <div>Uploaded Image</div>
           <img
             src="https://ui-assets-gc.thrillophilia.com/assets/homepage/homepage-banner-2696fc25d8bb0f563e9ff7ae22882ee67cea624e244dfb0bc74316db0ffdcfba.jpg"
-            width="520px"
-            height="150px"
+            width="100%"
+            height="350px"
+            style={{ borderRadius: "10px", marginTop: "20px" }}
           />
         </div>
       </div>
 
       <div className="product-list-wrapper">
-        <div>Product List</div>
+        <div className="product-list-label">Product List</div>
 
         <div className="product-list">
           {productList.ids.map((item: any, index: any) => {
