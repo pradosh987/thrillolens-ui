@@ -10,7 +10,8 @@ import { productsList } from "../SearchBox/data";
 function SearchResult(props: any) {
   const [visible, setVisible] = useState(false);
   const location = useLocation();
-  console.log(location.state, "2345678");
+  console.log({ location });
+  console.log(location.state, "2345678", { props });
 
   const [productList, setProductList] = useState(location.state);
 
