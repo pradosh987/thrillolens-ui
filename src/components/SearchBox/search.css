@@ -59,6 +59,16 @@ input:focus {
   height: 300px;
   /* padding-top: 100px; */
 }
+.spinner {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background-color: aliceblue;
+}
 @media only screen and (max-width: 580px) {
   .search-bar-box {
     width: 100%;
