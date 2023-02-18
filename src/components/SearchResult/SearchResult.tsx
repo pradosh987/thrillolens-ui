@@ -65,7 +65,10 @@ function SearchResult(props: any) {
         <div className="product-list-label">Product List</div>
 
         <div className="product-list">
-          {productList.ids.map((item: any, index: any) => {
+          {(productList?.ids || []).map((item: any, index: any) => {
+            if (!item) {
+              return "";
+            }
             return (
               <>
                 <OverviewCard product={item} />
