@@ -1,25 +1,28 @@
 import { useState } from "react";
-import "./search.css";
 import { SearchOutlined } from "@ant-design/icons";
 import ImageSearch from "../ImageSearchBox/ImageSearch";
 import axios from "axios";
-import { OverviewCard } from "../OverviewCard/OverviewCard";
+import { useNavigate } from "react-router-dom";
+import { productsList } from "./data";
+import "./search.css";
 
 function Search() {
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
-  const [productList, setProductList] = useState([1, 2, 3, 4, 5, 6]);
-
-  const handleUpload = async (e: any) => {
+  const handleUpload = (e: any) => {
     let formData = new FormData();
     formData.append("image", e.target.files[0]);
-    const res = await axios.post(
-      "http://localhost:3001/base_api/process_image",
-      formData
-    );
-    console.log({ res });
+    axios
+      .post("http://localhost:3001/base_api/process_image", formData)
+      .then((res) => {
+        console.log({ res });
+        navigate("/search", { state: res.data });
+      })
+      .catch((e) => {
+        console.log({ e });
+      });
   };
-  const product = {};
   return (
     <div className="App">
       <div className="search-bar-box">
@@ -41,28 +44,6 @@ function Search() {
       <div className={`image-search-box ${visible && "visible"}`}>
         <ImageSearch handleUpload={handleUpload} />
       </div>
-
-      {/* <div className="uploded-image">
-        <div>Uploaded Image</div>
-        <img
-          src="https://ui-assets-gc.thrillophilia.com/assets/homepage/homepage-banner-2696fc25d8bb0f563e9ff7ae22882ee67cea624e244dfb0bc74316db0ffdcfba.jpg"
-          width="500px"
-          height="150px"
-        />
-      </div>
-      <div className="product-list-wrapper">
-        <div>Product List</div>
-
-        <div className="product-list">
-          {productList.map(() => {
-            return (
-              <>
-                <OverviewCard product={product} />{" "}
-              </>
-            );
-          })}
-        </div>
-      </div> */}
     </div>
   );
 }

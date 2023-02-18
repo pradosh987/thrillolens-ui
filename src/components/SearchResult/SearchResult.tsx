@@ -4,25 +4,29 @@ import { SearchOutlined } from "@ant-design/icons";
 import ImageSearch from "../ImageSearchBox/ImageSearch";
 import axios from "axios";
 import { OverviewCard } from "../OverviewCard/OverviewCard";
+import { useLocation } from "react-router-dom";
+import { productsList } from "../SearchBox/data";
 
-function SearchResult() {
+function SearchResult(props: any) {
   const [visible, setVisible] = useState(false);
+  const location = useLocation();
+  console.log(location.state, "2345678");
 
-  const [productList, setProductList] = useState([1, 2, 3, 4, 5, 6]);
+  const [productList, setProductList] = useState(location.state);
 
-  const handleUpload = async (e: any) => {
+  const handleUpload = (e: any) => {
     let formData = new FormData();
     formData.append("image", e.target.files[0]);
-    const res = await axios.post(
-      "http://localhost:3001/base_api/process_image",
-      formData
-    );
-    console.log({ res });
-  };
-  const product = {
-    name: "Dubai Down Cruise Premium Package",
-    strike_through_price: 22000,
-    starting_price: 14700,
+    axios
+      .post("http://localhost:3001/base_api/process_image", formData)
+      .then((res) => {
+        console.log({ res });
+        setProductList(productsList);
+        // navigate("/search", { state: productsList });
+      })
+      .catch((e) => {
+        console.log({ e });
+      });
   };
   return (
     <div className="search-result-wrapper">
@@ -60,10 +64,10 @@ function SearchResult() {
         <div>Product List</div>
 
         <div className="product-list">
-          {productList.map(() => {
+          {productList.ids.map((item: any, index: any) => {
             return (
               <>
-                <OverviewCard product={product} />{" "}
+                <OverviewCard product={item} />
               </>
             );
           })}

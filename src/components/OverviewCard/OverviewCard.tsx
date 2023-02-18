@@ -1,10 +1,11 @@
 // import { AiFillStar } from "react-icons/ai";
+import { useEffect, useState } from "react";
 import "./overviewCard.css";
 type Props = {
   product: any;
 };
 
-function OverviewCard({ product }: Props) {
+function OverviewCard({ product }: any) {
   return (
     // <a href={`/products/${product.slug}`} target="_blank">
     <div className="sectiom-overview-product-card">
