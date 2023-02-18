@@ -7,6 +7,8 @@
   margin: 0 auto;
   margin-top: 10px;
   /* width: 230px; */
+  text-decoration: none !important;
+  /* text-decoration-line: none !important; */
 }
 
 .image-container {

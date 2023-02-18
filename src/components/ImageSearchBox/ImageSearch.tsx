@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./imageSearch.css";
 
 const ImageSearch = ({ handleUpload }: any) => {
+  const [link, setLink] = useState("");
+  const handleSubmit = () => {};
   return (
     <div className="image-search-wrapper">
       <label htmlFor="file-input" className="upload-image-box">
@@ -22,6 +25,7 @@ const ImageSearch = ({ handleUpload }: any) => {
           className="image-link-input "
           placeholder="enter your image link here"
           type={"text"}
+          onChange={(e) => setLink(e.target.value)}
         />
         <div className="search-button">Search</div>
       </div>

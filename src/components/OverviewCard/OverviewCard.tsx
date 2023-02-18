@@ -1,5 +1,3 @@
-// import { AiFillStar } from "react-icons/ai";
-import { useEffect, useState } from "react";
 import "./overviewCard.css";
 type Props = {
   product: any;
@@ -7,44 +5,47 @@ type Props = {
 
 function OverviewCard({ product }: any) {
   return (
-    // <a href={`/products/${product.slug}`} target="_blank">
-    <div className="sectiom-overview-product-card">
-      <div className="image-container">
-        {
-          <img
-            placeholder="blur"
-            src={product?.featured_image_urls.thumbnail || ""}
-            // src="https://w0.peakpx.com/wallpaper/187/664/HD-wallpaper-mando-baby-yoda-star-wars-the-mandalorian.jpg"
-            alt={product?.featured_media?.caption || product?.name}
-            title={product?.featured_media?.caption || product?.name}
-            width="100%"
-            height="100%"
-          />
-        }
-      </div>
-      <div>
-        <p className="product-name has-dynamic-color">{product.name}</p>
-        {/* <div className="rating-box">
+    <a
+      href={`https://www.thrillophilia.com/tours/${product.slug}`}
+      target="_blank"
+    >
+      <div className="sectiom-overview-product-card">
+        <div className="image-container">
+          {
+            <img
+              placeholder="blur"
+              src={product?.featured_image_urls.thumbnail || ""}
+              // src="https://w0.peakpx.com/wallpaper/187/664/HD-wallpaper-mando-baby-yoda-star-wars-the-mandalorian.jpg"
+              alt={product?.featured_media?.caption || product?.name}
+              title={product?.featured_media?.caption || product?.name}
+              width="100%"
+              height="100%"
+            />
+          }
+        </div>
+        <div>
+          <p className="product-name has-dynamic-color">{product.name}</p>
+          {/* <div className="rating-box">
           <AiFillStar className="star" />
           <p className="rating">{product?.rating?.toPrecision(2)}</p>
           <p className="reviews">({product?.review_count} Reviews)</p>
         </div> */}
-        <p className="orignal-price">
-          {/* {`${CurrencyConversionObject?.currency} ${formattedPrice(
+          <p className="orignal-price">
+            {/* {`${CurrencyConversionObject?.currency} ${formattedPrice(
               convertedOriginalPrice
             )}`} */}
-          {"INR"} {product.strike_through_price}
-        </p>
-        <p className="current-price">
-          {/* {`${CurrencyConversionObject?.currency} ${formattedPrice(
+            {"INR"} {product.strike_through_price}
+          </p>
+          <p className="current-price">
+            {/* {`${CurrencyConversionObject?.currency} ${formattedPrice(
               convertedPrice
             )}`} */}
-          {"INR"} {product.starting_price}
-        </p>
+            {"INR"} {product.starting_price}
+          </p>
+        </div>
+        <div className="bottom-button">Book Now</div>
       </div>
-      <div className="bottom-button">Book Now</div>
-    </div>
-    // </a>
+    </a>
   );
 }
 
