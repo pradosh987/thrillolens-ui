@@ -4,19 +4,21 @@ body {
 input:focus {
   border: 1px solid #f37022;
 }
-.App {
+.search-result-wrapper {
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   /* text-align: center; */
   /* justify-content: center; */
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  padding-top: 200px;
   box-sizing: border-box;
+  justify-content: space-between;
   /* background: grey; */
-  background: url("https://ui-assets-gc.thrillophilia.com/assets/homepage/homepage-banner-2696fc25d8bb0f563e9ff7ae22882ee67cea624e244dfb0bc74316db0ffdcfba.jpg");
+  /* background: url("https://ui-assets-gc.thrillophilia.com/assets/homepage/homepage-banner-2696fc25d8bb0f563e9ff7ae22882ee67cea624e244dfb0bc74316db0ffdcfba.jpg"); */
+}
+.left-section {
+  margin: 30px;
 }
 .search-bar-box {
   display: flex;
@@ -33,7 +35,7 @@ input:focus {
   margin: 15px 0px 0px 480px;
   cursor: pointer;
 }
-.search-bar {
+.search-bar-result {
   width: 480px;
   height: 51px;
   border-radius: 20px;
@@ -59,14 +61,34 @@ input:focus {
   height: 300px;
   /* padding-top: 100px; */
 }
+
+.uploded-image {
+  margin-top: 40px;
+}
+.product-list-wrapper {
+  margin: 30px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 750px;
+  justify-content: space-between;
+}
 @media only screen and (max-width: 580px) {
   .search-bar-box {
     width: 100%;
   }
-  .search-bar {
-    width: calc(100% - 100px);
+  .search-bar-result {
+    width: calc(100% - 20px);
     margin-left: 20px;
     border-radius: 10px;
+  }
+  .search-result-wrapper {
+    flex-direction: column;
+  }
+  .product-list {
+    width: 100%;
   }
   .search-icon {
     display: flex;

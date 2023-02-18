@@ -1,18 +1,6 @@
-import axios from "axios";
-import React from "react";
 import "./imageSearch.css";
 
-const ImageSearch = () => {
-  const handleUpload = async (e: any) => {
-    let formData = new FormData();
-    formData.append("image", e.target.files[0]);
-    const res = await axios.post(
-      "http://localhost:3001/base_api/process_image",
-      formData
-    );
-    console.log({ res });
-  };
-
+const ImageSearch = ({ handleUpload }: any) => {
   return (
     <div className="image-search-wrapper">
       <label htmlFor="file-input" className="upload-image-box">
