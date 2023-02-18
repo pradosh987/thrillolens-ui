@@ -6,6 +6,7 @@ type Props = {
 function OverviewCard({ product }: any) {
   return (
     <a
+      style={{ textDecoration: "none" }}
       href={`https://www.thrillophilia.com/tours/${product.slug}`}
       target="_blank"
     >
